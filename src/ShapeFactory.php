@@ -1,8 +1,7 @@
 <?php
 
 // /////////////////////////////////////////////////////////////////////////////
-// WORKING AREA
-// THIS IS AN AREA WHERE YOU SHOULD WRITE YOUR CODE AND MAKE CHANGES
+// AQUI SE PUEDE MODIFICAR
 // /////////////////////////////////////////////////////////////////////////////
 
 namespace App;
@@ -28,8 +27,30 @@ class ShapeFactory
      * @return mixed
      * @throws WrongParamCountException|UnsupportedShapeException
      */
-    public static function createShape(string $shape, array $params = [])
-    {
-        // ToDo
+    public static function createShape(string $shape, array $params = []) {
+     
+        $paramsLength = count($params);
+
+        if ($paramsLength < 1 || $paramsLength > 2) {
+            throw new WrongParamCountException();
+        }
+
+        switch ($shape) {
+            case 'Circle':
+                return new Circle($params);
+                break;
+
+            case 'Rectangle':
+                return new Rectangle($params);
+                break;
+
+            case 'Square':
+                return new Square($params);
+                break;
+
+            default:
+                throw new UnsupportedShapeException();
+            
+        }
     }
 }

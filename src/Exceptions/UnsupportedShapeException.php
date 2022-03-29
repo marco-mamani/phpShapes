@@ -6,3 +6,9 @@
 // /////////////////////////////////////////////////////////////////////////////
 
 namespace App\Exceptions;
+
+class UnsupportedShapeException extends Exceptions {
+
+    protected $message = 'Not supported shape. The only supported shapes are: Circle, Rectangle, and Square.';
+    
+}

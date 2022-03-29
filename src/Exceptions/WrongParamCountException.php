@@ -6,3 +6,9 @@
 // /////////////////////////////////////////////////////////////////////////////
 
 namespace App\Exceptions;
+
+class WrongParamCountException extends \Exceptions {
+    
+    protected $message = 'Wrong number of parameters to build a Geometric Shape object.';
+
+}
